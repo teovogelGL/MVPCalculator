@@ -3,7 +3,11 @@ package com.globant.counter.android.operators;
 
 public class Multiplication extends Operator {
 
-    public float operate (int x, int y) {
+    public Multiplication () {
+        input = "*";
+    }
+
+    public float operate (float x, float y) {
         return x * y;
     }
 

@@ -4,8 +4,8 @@ import com.globant.counter.android.operators.Operator;
 
 public class CalculatorModel {
 
-    private int x = 0;
-    private int y = 0;
+    private float x = 0;
+    private float y = 0;
     private Operator operator;
 
     public void addDigit(int n) {
@@ -32,6 +32,10 @@ public class CalculatorModel {
         x = 0;
         y = 0;
         return result;
+    }
+
+    public float getInputNumber () {
+        return operator == null? x : y;
     }
 
 }

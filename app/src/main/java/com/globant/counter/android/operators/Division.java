@@ -2,7 +2,11 @@ package com.globant.counter.android.operators;
 
 public class Division extends Operator {
 
-    public float operate (int x, int y) {
+    public Division () {
+        input = "/";
+    }
+
+    public float operate (float x, float y) {
         if (y == 0) {
             return 666;
         }

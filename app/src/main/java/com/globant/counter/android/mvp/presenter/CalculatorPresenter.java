@@ -62,10 +62,12 @@ public class CalculatorPresenter {
 
     public void onDigitClicked (int n) {
         model.addDigit(n);
+        view.displayInput(String.valueOf(model.getInputNumber()));
     }
 
     public void onOperatorClicked (Operator o) {
         model.setOperator(o);
+        view.displayInput(o.toString());
     }
 
     public void onResultClicked () {

@@ -7,6 +7,7 @@ import com.globant.counter.android.R;
 import com.globant.counter.android.operators.Addition;
 import com.globant.counter.android.operators.Division;
 import com.globant.counter.android.operators.Multiplication;
+import com.globant.counter.android.operators.Operator;
 import com.globant.counter.android.operators.Subtraction;
 import com.globant.counter.android.util.bus.RxBus;
 import com.globant.counter.android.util.bus.observers.DigitButtonBusObserver;
@@ -28,6 +29,10 @@ public class CalculatorView extends ActivityView {
 
     public void showResult (float r) {
         numLabel.setText("" + r);
+    }
+
+    public void displayInput (String s) {
+        numLabel.setText(s);
     }
 
     @OnClick(R.id.digit_zer_button)

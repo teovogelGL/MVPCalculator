@@ -2,6 +2,12 @@ package com.globant.counter.android.operators;
 
 public abstract class Operator {
 
-    public abstract float operate (int x, int y);
+    protected String input;
+
+    public abstract float operate (float x, float y);
+
+    public String toString () {
+        return input;
+    }
 
 }
