@@ -9,6 +9,7 @@ import com.globant.counter.android.operators.Division;
 import com.globant.counter.android.operators.Multiplication;
 import com.globant.counter.android.operators.Subtraction;
 import com.globant.counter.android.util.bus.RxBus;
+import com.globant.counter.android.util.bus.observers.ClearButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.DigitButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.OperatorButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.ResultButtonBusObserver;
@@ -28,6 +29,10 @@ public class CalculatorView extends ActivityView {
 
     public void showResult (float r) {
         numLabel.setText("" + r);
+    }
+
+    public void clear () {
+        numLabel.setText("0");
     }
 
     @OnClick(R.id.digit_zer_button)
@@ -103,10 +108,16 @@ public class CalculatorView extends ActivityView {
     }
 
 
-
     @OnClick(R.id.result_button)
     public void resultPressed() {
         RxBus.post(new ResultButtonBusObserver.ResultButton());
+    }
+
+
+
+    @OnClick(R.id.clear_button)
+    public void clearPressed() {
+        RxBus.post(new ClearButtonBusObserver.ClearButton());
     }
 
 }

@@ -34,4 +34,10 @@ public class CalculatorModel {
         return result;
     }
 
+    public void clear () {
+        x = 0;
+        y = 0;
+        operator = null;
+    }
+
 }

@@ -6,6 +6,7 @@ import com.globant.counter.android.mvp.model.CalculatorModel;
 import com.globant.counter.android.mvp.view.CalculatorView;
 import com.globant.counter.android.operators.Operator;
 import com.globant.counter.android.util.bus.RxBus;
+import com.globant.counter.android.util.bus.observers.ClearButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.DigitButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.OperatorButtonBusObserver;
 import com.globant.counter.android.util.bus.observers.ResultButtonBusObserver;
@@ -48,6 +49,13 @@ public class CalculatorPresenter {
             }
         });
 
+        RxBus.subscribe(activity, new ClearButtonBusObserver() {
+            @Override
+            public void onEvent(ClearButtonBusObserver.ClearButton value) {
+                onClearClicked();
+            }
+        });
+
     }
 
     public void unregister() {
@@ -73,5 +81,10 @@ public class CalculatorPresenter {
             float result = model.operate();
             view.showResult(result);
         }
+    }
+
+    public void onClearClicked () {
+        model.clear();
+        view.clear();
     }
 }
