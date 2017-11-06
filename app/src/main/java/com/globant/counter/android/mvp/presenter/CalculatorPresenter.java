@@ -65,6 +65,10 @@ public class CalculatorPresenter {
     }
 
     public void onOperatorClicked (Operator o) {
+        if (model.readyToOperate()) {
+            float result = model.operate();
+            model.setX(result);
+        }
         model.setOperator(o);
     }
 
